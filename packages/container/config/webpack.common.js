@@ -1,3 +1,5 @@
+const HtmlWebpackplugin = require('html-webpack-plugin');
+
 module.exports = {
   module: {
     rules: [
@@ -9,9 +11,14 @@ module.exports = {
           options: {
             presets: ['@babel/preset-react', '@babel/preset-env'],
             plugins: ['@babel/plugin-transform-runtime']
-          }
-        }
-      }
+          },
+        },
+      },
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackplugin({
+      template: './public/index.html'
+    })
+  ]
 }
